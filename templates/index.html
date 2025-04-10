@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask_sample</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+
+<body>
+    <h1>Student Information</h1>
+    <form method="post" class="student-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <div class="section">
+            <label for="section">Section:</label>
+            <div class="radio-group">
+                <input type="radio" id="section_a" name="section" value="A" required>
+                <label for="section_a">A</label>
+
+                <input type="radio" id="section_b" name="section" value="B">
+                <label for="section_b">B</label>
+
+                <input type="radio" id="section_c" name="section" value="C">
+                <label for="section_c">C</label>
+            </div>
+        </div>
+        <label for="roll_number">Roll Number:</label>
+        <input type="text" id="roll_number" name="roll_number" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <form action="/information" method="get">
+        <button type="submit">Show Information</button>
+    </form>
+</body>
+
+</html>

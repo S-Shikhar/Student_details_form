@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information</title>
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+
+<body>
+    <h1>Student Information</h1>
+
+    <form><a href="/"><button type="button">Back</button></a></form>
+
+    <div class="student-info-container">
+        {% for record in info %}
+        <div class="student-info">
+            <h2>Student {{ loop.index }}</h2>
+            <img src="{{ record['Image'] }}" alt="Student Image" class="student-image">
+            <div class="info">
+                <p><strong>Name:</strong> {{ record["Name"] }}</p>
+                <p><strong>Section:</strong> {{ record["Section"] }}</p>
+                <p><strong>Roll No.:</strong> {{ record["Roll No."] }}</p>
+            </div>
+            <div class="buttons">
+                <!-- Edit Button -->
+                <form action="/edit" method="post" class="student-form">
+                    <button type="submit">Edit</button>
+                </form>
+
+                <!-- Delete Button -->
+                <form action="{{ url_for('delete', id=record['_id']) }}" method="post" class="student-form">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
