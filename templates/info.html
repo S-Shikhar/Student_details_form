@@ -17,19 +17,17 @@
         {% for record in info %}
         <div class="student-info">
             <h2>Student {{ loop.index }}</h2>
-            <img src="{{ record['Image'] }}" alt="Student Image" class="student-image">
+            <!-- <img src="{{ record['Image'] }}" alt="Student Image" class="student-image"> -->
             <div class="info">
                 <p><strong>Name:</strong> {{ record["Name"] }}</p>
                 <p><strong>Section:</strong> {{ record["Section"] }}</p>
-                <p><strong>Roll No.:</strong> {{ record["Roll No."] }}</p>
+                <p><strong>Roll No.:</strong> {{ record["Roll No"] }}</p>
             </div>
             <div class="buttons">
-                <!-- Edit Button -->
-                <form action="/edit" method="post" class="student-form">
+                <form action="{{ url_for('edit', id=record['_id']) }}" method="get">
                     <button type="submit">Edit</button>
                 </form>
 
-                <!-- Delete Button -->
                 <form action="{{ url_for('delete', id=record['_id']) }}" method="post" class="student-form">
                     <button type="submit">Delete</button>
                 </form>
