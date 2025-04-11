@@ -47,7 +47,7 @@ def edit(id):
             "Roll No": request.form['roll_number']
         }
         sample.update_one({"_id": ObjectId(id)}, {"$set": updated_data})
-        return redirect(url_for('info'))  # Redirect to the info page
+        return redirect(url_for('info'))  
 
     return render_template('edit.html', record=student)
 
