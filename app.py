@@ -41,7 +41,6 @@ def edit(id):
         return "Student not found", 404
 
     if request.method == 'POST':
-        # Update student record with form data
         updated_data = {
             "Name": request.form['name'],
             "Section": request.form['section'],
