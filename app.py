@@ -5,8 +5,8 @@ from bson.objectid import ObjectId
 app = Flask(__name__)
 
 clint = MongoClient("localhost", 27017)
-db = clint.flask_sample
-sample = db.sample
+db = clint.flask_Student_details
+sample = db.details
 
 
 @app.route("/", methods = ["GET", "POST"])
