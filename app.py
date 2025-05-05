@@ -37,8 +37,8 @@ def info():
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 def edit(id):
     student = sample.find_one({"_id": ObjectId(id)})
-    if not student:
-        return "Student not found", 404
+    # if not student:
+    #     return "Student not found", 404
 
     if request.method == 'POST':
         updated_data = {
