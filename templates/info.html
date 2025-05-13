@@ -9,27 +9,45 @@
 </head>
 
 <body>
-    <h1>Student Information</h1>
+    <nav class="navbar-container">
+        <div class="logo-container">
+            <img src="../static/images/logo.png" alt="Logo" class="logo">
+        <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="/information">Products</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li class="cart-icon">
+                <a href="/cart" class="cart-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5zM3.14 6l1.25 6h8.22l1.25-6H3.14zM5 12a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                    </svg>
+                    Cart
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <h1>Product Information</h1>
 
     <form><a href="/"><button type="button">Back</button></a></form>
 
     <div class="student-info-container">
         {% for record in info %}
         <div class="student-info">
-            <h2>Student {{ loop.index }}</h2>
+            <h2>Product {{ loop.index }}</h2>
             <!-- <img src="{{ record['Image'] }}" alt="Student Image" class="student-image"> -->
             <div class="info">
                 <p><strong>Name:</strong> {{ record["Name"] }}</p>
-                <p><strong>Section:</strong> {{ record["Section"] }}</p>
-                <p><strong>Roll No.:</strong> {{ record["Roll No"] }}</p>
+                <p><strong>Price</strong> {{ record["Price"] }}</p>
+                <p><strong>Category:</strong> {{ record["Category"] }}</p>
             </div>
             <div class="buttons">
-                <form action="{{ url_for('edit', id=record['_id']) }}" method="get">
+                <!-- <form action="{{ url_for('edit', id=record['_id']) }}" method="get">
                     <button type="submit">Edit</button>
-                </form>
+                </form> -->
 
-                <form action="{{ url_for('delete', id=record['_id']) }}" method="post" class="student-form">
-                    <button type="submit">Delete</button>
+                <form action="{{ url_for('delete', id=record['_id']) }}" method="post" style="display: block; margin: 0 auto;">
+                    <button type="submit" onclick="alert('Product Deleted Successfully!')">Delete</button>
                 </form>
             </div>
         </div>

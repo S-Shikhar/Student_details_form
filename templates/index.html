@@ -9,28 +9,37 @@
 </head>
 
 <body>
-    <h1>Student Information</h1>
+    <!-- Navigation Bar -->
+    <nav class="navbar-container">
+        <div class="logo-container">
+            <img src="../static/images/logo.png" alt="Logo" class="logo">
+        <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="/information">Products</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li class="cart-icon">
+                <a href="/cart" class="cart-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1h1a.5.5 0 0 1 .485.379L2.89 5H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 14H4a.5.5 0 0 1-.491-.408L1.01 2H.5a.5.5 0 0 1-.5-.5zM3.14 6l1.25 6h8.22l1.25-6H3.14zM5 12a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                    </svg>
+                    Cart
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <h1>Product Details</h1>
     <form method="post" class="student-form">
-        <label for="name">Name:</label>
+        <label for="name">Product Name:</label>
         <input type="text" id="name" name="name" required>
         <br>
-        <div class="section">
-            <label for="section">Section:</label>
-            <div class="radio-group">
-                <input type="radio" id="section_a" name="section" value="A" required>
-                <label for="section_a">A</label>
-
-                <input type="radio" id="section_b" name="section" value="B">
-                <label for="section_b">B</label>
-
-                <input type="radio" id="section_c" name="section" value="C">
-                <label for="section_c">C</label>
-            </div>
-        </div>
-        <label for="roll_number">Roll Number:</label>
-        <input type="text" id="roll_number" name="roll_number" required>
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" required>
         <br>
-        <button type="submit">Submit</button>
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required>
+        <button type="submit" onclick="alert('Product Details Submitted Successfully!')">Submit</button>
     </form>
 
     <form action="/information" method="get">

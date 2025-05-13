@@ -6,20 +6,20 @@ app = Flask(__name__)
 
 clint = MongoClient("localhost", 27017)
 db = clint.flask_sample
-sample = db.sample
+sample = db.productList
 
 
 @app.route("/", methods = ["GET", "POST"])
 def index():
     if request.method == "POST":
         name = request.form["name"]
-        section = request.form["section"]
-        roll = request.form["roll_number"]
+        price = request.form["price"]
+        category = request.form["category"]
         
         sample.insert_one({
             "Name": name,
-            "Section": section,
-            "Roll No": roll
+            "Price": price,
+            "Category": category
         })
         
         return redirect(url_for("index"))
