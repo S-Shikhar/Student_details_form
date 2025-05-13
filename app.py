@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 clint = MongoClient("localhost", 27017)
 db = clint.flask_sample
-sample = db.productList
+sample = db.sample
 
 
 @app.route("/", methods = ["GET", "POST"])
@@ -37,8 +37,8 @@ def info():
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 def edit(id):
     student = sample.find_one({"_id": ObjectId(id)})
-    if not student:
-        return "Student not found", 404
+    # if not student:
+    #     return "Student not found", 404
 
     if request.method == 'POST':
         updated_data = {
